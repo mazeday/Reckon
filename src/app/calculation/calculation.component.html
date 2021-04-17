@@ -1,0 +1,42 @@
+<div class="mat-form-title">
+<span class="material-icons icon">table_view</span>
+</div>
+<div class="mat-form-title">
+
+<mat-card-title class="title-h1">
+  РАСЧЕТ ПОКАЗАНИЙ СЧЕТЧИКОВ</mat-card-title>
+</div>
+
+<mat-form-field appearance="fill">
+  <mat-label>Выберите тип расчета</mat-label>
+  <mat-select [(ngModel)]="whatCount" (ngModelChange)="labelChange()">
+    <mat-option value="one">Электроэнергия</mat-option>
+    <mat-option value="two">Горячая вода</mat-option>
+    <mat-option value="three">Холодная вода</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Последние показания счетчика, {{labelForm}}</mat-label>
+  <input matInput [(ngModel)]="countLast">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Предыдущие показания счетчика, {{labelForm}}</mat-label>
+  <input matInput [(ngModel)]="countPre">
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Текущий тариф</mat-label>
+  <input matInput [(ngModel)]="tarif">
+</mat-form-field>
+
+<section class="mat-form-field">
+<button mat-flat-button color="primary" (click)="calculate()">РАСЧИТАТЬ</button>
+</section>
+
+<div class="mat-form-title" *ngIf="resultString">
+  <mat-card-title class="title-result">{{resultString}} руб.</mat-card-title>
+</div>
+
+
